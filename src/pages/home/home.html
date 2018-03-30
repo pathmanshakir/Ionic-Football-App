@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nav</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content *ngIf="leaguesCompt">
+  <ion-list >
+    <button ion-item *ngFor="let data1 of leaguesCompt.league" item-start>
+      
+      {{ data1.id }} 
+    
+    </button>
+  </ion-list>
+</ion-content>
+
