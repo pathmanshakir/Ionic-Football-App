@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import {Http}from '@angular/http';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/operator/map';
+import { HomePage } from '../../pages/home/home';
 
 /*
   Generated class for the DataProvider provider.
@@ -12,22 +13,26 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class DataProvider {
-
-  api ='http://api.football-data.org/v1/competitions/';
+ 
+  id: number=445;
+  leagueId:HomePage;
+  api_Competitions ='http://api.football-data.org/v1/competitions/';
+  api_LeagueTable: string ='http://api.football-data.org/v1/competitions/${this.id}/leagueTable';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
 
   constructor(public http: HttpClient) {
-    console.log('Hello DataProvider Provider');
-  }
-
-
+    console.log('Hello DataProvider Provider');}
     getType():Observable<Leagues>{
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
- return this.http.get<Leagues>(this.api,{headers});
- 
-}
-  
-  }
+ return this.http.get<Leagues>(this.api_Competitions,{headers});
+ }
+    getLeagueTable():Observable<iTable>{
+const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+ return this.http.get<iTable>(this.api_LeagueTable,{headers});}}
+
+
+
+
 
     export interface Self {
         href: string;
@@ -71,4 +76,70 @@ const headers = new HttpHeaders().set('X-Auth-Token',this.key)
     }
 
 
-
+    // LeagueTable Interfaces
+   
+        
+            export interface Self {
+                href: string;
+            }
+        
+            export interface Competition {
+                href: string;
+            }
+        
+            export interface Links {
+                self: Self;
+                competition: Competition;
+            }
+        
+            export interface Team {
+                href: string;
+            }
+        
+            export interface Links2 {
+                team: Team;
+            }
+        
+            export interface Home {
+                goals: number;
+                goalsAgainst: number;
+                wins: number;
+                draws: number;
+                losses: number;
+            }
+        
+            export interface Away {
+                goals: number;
+                goalsAgainst: number;
+                wins: number;
+                draws: number;
+                losses: number;
+            }
+        
+            export interface Standing {
+                _links: Links2;
+                position: number;
+                teamName: string;
+                crestURI: string;
+                playedGames: number;
+                points: number;
+                goals: number;
+                goalsAgainst: number;
+                goalDifference: number;
+                wins: number;
+                draws: number;
+                losses: number;
+                home: Home;
+                away: Away;
+            }
+        
+            export interface iTable {
+                _links: Links;
+                leagueCaption: string;
+                matchday: number;
+                standing: Standing[];
+            }
+        
+        
+        
+        

@@ -5,13 +5,49 @@
 </ion-header>
 
 
-<ion-content *ngIf="leaguesCompt">
-  <ion-list >
-    <button ion-item *ngFor="let data1 of leaguesCompt.league" item-start>
-      
-      {{ data1.id }} 
-    
-    </button>
+<ion-content >
+  <ion-item>
+    <ion-label color="primary" fixed>Search </ion-label>
+    <ion-input type="tel" placeholder="League id"  [(ngModel)]="search"></ion-input>
+  </ion-item>
+  <ion-list>
+    <ion-item>
+      <ion-label *ngIf="leaguesCompt">Choose a league</ion-label>
+      <ion-select  >
+          
+        <ion-option  *ngFor="let data1 of leaguesCompt"> {{ data1.caption}}  {{ data1.id}} </ion-option>
+   
+      </ion-select>
+    </ion-item>
   </ion-list>
+  
+  
+  <table class="table table-hover"  *ngIf="leaguesTable" >
+    <thead>
+        <tr > 
+              
+            <th>Position</th>
+            <th>Team</th>
+            <th>Points</th>
+            
+         
+
+        </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let data2 of leaguesTable.standing">
+        
+            <td >{{data2.position}}</td>
+            <td >{{data2.teamName}} </td>
+            <td >{{data2.points}} </td>
+          
+           
+             
+         
+        </tr>
+        
+      </tbody>
+</table>  
+
 </ion-content>
 

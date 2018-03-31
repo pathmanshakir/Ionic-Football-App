@@ -11,7 +11,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
-import { Leagues } from '../providers/data/data';
+import { iTable,Leagues} from '../providers/data/data';
+
 
 
 @NgModule({
