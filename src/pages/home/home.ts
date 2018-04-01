@@ -14,7 +14,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit{
-
+  
   leaguesCompt:Leagues;
   leaguesTable:iTable;
   search:number= 445;
@@ -27,6 +27,10 @@ export class HomePage implements OnInit{
       this.ionicData.getLeagueTable().subscribe(result => {this.leaguesTable = result;  debugger});
     
 }
+ f() {
+  var a = "445";
+      return a ;
+  }
 
 
 }

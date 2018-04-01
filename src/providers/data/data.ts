@@ -11,26 +11,28 @@ import { HomePage } from '../../pages/home/home';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+var id="445";
+var api_LeagueTable ='http://api.football-data.org/v1/competitions/${id}/leagueTable';
+
+//Dit werkt wel
+//var api_LeagueTable ='http://api.football-data.org/v1/competitions/445/leagueTable';
 @Injectable()
 export class DataProvider {
- 
-  id: number=445;
   leagueId:HomePage;
   api_Competitions ='http://api.football-data.org/v1/competitions/';
-  api_LeagueTable: string ='http://api.football-data.org/v1/competitions/${this.id}/leagueTable';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
-
   constructor(public http: HttpClient) {
-    console.log('Hello DataProvider Provider');}
+    console.log('Hello DataProvider Provider');
+    console.log(id);}
+
     getType():Observable<Leagues>{
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
  return this.http.get<Leagues>(this.api_Competitions,{headers});
  }
     getLeagueTable():Observable<iTable>{
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
- return this.http.get<iTable>(this.api_LeagueTable,{headers});}}
-
-
+ return this.http.get<iTable>(api_LeagueTable,{headers});}
+}
 
 
 
