@@ -12,6 +12,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
 import { iTable,Leagues} from '../providers/data/data';
+import { LeagueTablePage } from '../pages/league-table/league-table';
+
 
 
 
@@ -21,7 +23,8 @@ import { iTable,Leagues} from '../providers/data/data';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LeagueTablePage
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { iTable,Leagues} from '../providers/data/data';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LeagueTablePage
   ],
   providers: [
     StatusBar,
@@ -44,6 +48,8 @@ import { iTable,Leagues} from '../providers/data/data';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
     HttpClient,
+    LeagueTablePage
+  
       
     
   ]

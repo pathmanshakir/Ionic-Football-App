@@ -6,6 +6,8 @@ import {Leagues}from '../../providers/data/data';
 import {iTable}from '../../providers/data/data';
 import{OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { LeagueTablePage } from '../../pages/league-table/league-table';
+
 
 
 
@@ -14,24 +16,27 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'home.html'
 })
 export class HomePage implements OnInit{
-  
+  public id="445";
   leaguesCompt:Leagues;
   leaguesTable:iTable;
-  search:number= 445;
-  constructor(public navCtrl: NavController, public ionicData:DataProvider) {
+
+  constructor(public navCtrl: NavController, public ionicData:DataProvider,public tablePage:LeagueTablePage) {
 
       
     }
     ngOnInit() {
-      this.ionicData.getType().subscribe(result => {this.leaguesCompt = result;  debugger});
-      this.ionicData.getLeagueTable().subscribe(result => {this.leaguesTable = result;  debugger});
+      
+      this.ionicData.getType().subscribe(result => {this.leaguesCompt = result;  });
+     
     
 }
- f() {
-  var a = "445";
-      return a ;
-  }
 
+openNavDetailsPage(variable) {
+  this.ionicData.id=variable;
+  this.navCtrl.push(LeagueTablePage,{variable:variable});
 
+  
+
+}
 }
 debugger;

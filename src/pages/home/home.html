@@ -1,53 +1,45 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Nav</ion-title>
+    <ion-title>World League App</ion-title>
   </ion-navbar>
+  <style>
+       button{
+        -moz-box-shadow:inset 0px 0px 15px 3px #23395e;
+        -webkit-box-shadow:inset 0px 0px 15px 3px #23395e;
+        box-shadow:inset 0px 0px 15px 3px #23395e;
+        background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #2e466e), color-stop(1, #415989));
+        background:-moz-linear-gradient(top, #2e466e 5%, #415989 100%);
+        background:-webkit-linear-gradient(top, #2e466e 5%, #415989 100%);
+        background:-o-linear-gradient(top, #2e466e 5%, #415989 100%);
+        background:-ms-linear-gradient(top, #2e466e 5%, #415989 100%);
+        background:linear-gradient(to bottom, #2e466e 5%, #415989 100%);
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#2e466e', endColorstr='#415989',GradientType=0);
+        background-color:#2e466e;
+        -moz-border-radius:17px;
+        -webkit-border-radius:17px;
+        border-radius:17px;
+        border:1px solid #1f2f47;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        font-size:15px;
+        padding:6px 13px;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #263666;
+        width: 300px;
+        margin: 20px;
+      }
+     </style>
 </ion-header>
 
 
 <ion-content >
-  <ion-item>
-    <ion-label color="primary" fixed>Search </ion-label>
-    <ion-input type="tel" placeholder="League id"  [(ngModel)]="search"></ion-input>
-  </ion-item>
-  <ion-list>
-    <ion-item>
-      <ion-label *ngIf="leaguesCompt">Choose a league</ion-label>
-      <ion-select  >
-          
-        <ion-option  *ngFor="let data1 of leaguesCompt"> {{ data1.caption}}  {{ data1.id}} </ion-option>
-   
-      </ion-select>
-    </ion-item>
+  <ion-list  >
+    <button ion-item *ngFor="let data1 of leaguesCompt" (click)="openNavDetailsPage(data1.id)" icon-start>
+      {{ data1.caption }}
+    </button>
   </ion-list>
   
-  
-  <table class="table table-hover"  *ngIf="leaguesTable" >
-    <thead>
-        <tr > 
-              
-            <th>Position</th>
-            <th>Team</th>
-            <th>Points</th>
-            
-         
-
-        </tr>
-    </thead>
-    <tbody>
-      <tr  *ngFor="let data2 of leaguesTable.standing">
-        
-            <td >{{data2.position}}</td>
-            <td >{{data2.teamName}} </td>
-            <td >{{data2.points}} </td>
-          
-           
-             
-         
-        </tr>
-        
-      </tbody>
-</table>  
-
 </ion-content>
 

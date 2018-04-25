@@ -1,0 +1,111 @@
+<!--
+  Generated template for the LeagueTablePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>leagueTable</ion-title>
+  </ion-navbar>
+  <style>
+       h2{
+        size: 18px;
+        
+      }
+      </style>
+</ion-header>
+
+
+<ion-content class="margin">
+
+<ion-grid   >
+  <ion-row >
+    <ion-col >
+     <h2>#</h2>
+    </ion-col>
+    <ion-col >
+     
+    </ion-col>
+    <ion-col >
+      <h2>Team</h2>
+    </ion-col>
+    <ion-col >
+   <h2>Played</h2>
+    </ion-col>
+    <ion-col >
+      <h2>Won</h2>
+    </ion-col>
+    <ion-col>
+      <h2>Lost</h2>
+    </ion-col>
+    <ion-col >
+    <h2>Points</h2>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<ion-grid  *ngIf="leaguesTable" >
+  <ion-row  *ngFor="let data2 of leaguesTable.standing" >
+    <ion-col>
+      {{data2.position}}
+    </ion-col>
+    <ion-col>
+      <img width="40dp" height="40dp" src={{data2.crestURI}}>
+    </ion-col>
+    <ion-col>
+      {{data2.teamName}}
+    </ion-col>
+    <ion-col>
+      {{data2.playedGames}}
+    </ion-col>
+    <ion-col>
+      {{data2.wins}}
+    </ion-col>
+    <ion-col>
+      {{data2.losses}}
+    </ion-col>
+    <ion-col>
+      {{data2.points}} 
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+</ion-content>
+
+
+
+
+
+  <!-- <table class="table table-hover"  *ngIf="leaguesTable" >
+    <thead>
+        <tr  > 
+            <th>Club</th>
+             <th></th>
+            <th>Team</th>
+            <th>Played</th>
+            <th>Won</th>
+            <th>Lost</th>
+            <th>Points</th>
+
+            
+         
+
+        </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let data2 of leaguesTable.standing">
+        
+            <td >{{data2.position}}</td>
+            <td ><img width="40dp" height="40dp" src={{data2.crestURI}}> </td>
+            <td >{{data2.teamName}} </td>
+            <td>{{data2.playedGames}}</td>
+            <td>{{data2.wins}}</td>
+            <td>{{data2.losses}}</td>
+            <td >{{data2.points}} </td> 
+         
+        </tr>
+        
+      </tbody>
+</table>    -->
