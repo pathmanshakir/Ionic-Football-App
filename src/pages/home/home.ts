@@ -26,9 +26,7 @@ export class HomePage implements OnInit{
     }
     ngOnInit() {
       
-      this.ionicData.getType().subscribe(result => {this.leaguesCompt = result;  });
-     
-    
+      this.ionicData.getType().subscribe(result => {this.leaguesCompt = result;  });   
 }
 
 openNavDetailsPage(variable) {

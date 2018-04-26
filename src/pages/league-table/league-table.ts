@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider} from '../../providers/data/data';
 import {iTable}from '../../providers/data/data';
 import{OnInit} from '@angular/core';
+import {Leagues}from '../../providers/data/data';
 import { HomePage } from '../../pages/home/home';
 /**
  * Generated class for the LeagueTablePage page.
@@ -22,17 +23,16 @@ export class LeagueTablePage implements OnInit  {
   param: NavParams;
  Home:HomePage;
  leaguesTable:iTable;
- 
+ leaguesCompt:Leagues;
   constructor(public ionicData:DataProvider) {
     
   }
-
+ 
   ngOnInit(){
-    this.ionicData.getLeagueTable().subscribe(result => {this.leaguesTable = result; });
-    
+    this.ionicData.getLeagueTable().subscribe(result => {this.leaguesCompt = result; });
+ 
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeagueTablePage');
   }
-
 }

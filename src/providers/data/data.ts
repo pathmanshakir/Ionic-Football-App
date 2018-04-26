@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/operator/map';
 import { HomePage } from '../../pages/home/home';
+import {Leagues}from '../../providers/data/data';
 
 /*
   Generated class for the DataProvider provider.
@@ -20,6 +21,9 @@ export class DataProvider {
     leagueId:HomePage;
     id;
    api_LeagueTable =('http://api.football-data.org/v1/competitions/'+this.id+'/leagueTable');
+   league2 :Leagues;
+//linkToLeagueTable= this.league2.league[this.id]._links.leagueTable.href;
+
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {
@@ -30,9 +34,9 @@ export class DataProvider {
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
  return this.http.get<Leagues>(this.api_Competitions,{headers});
  }
-    getLeagueTable():Observable<iTable>{
-const headers = new HttpHeaders().set('X-Auth-Token',this.key)
- return this.http.get<iTable>('http://api.football-data.org/v1/competitions/'+this.id+'/leagueTable',{headers});}
+   // getLeagueTable():Observable<Leagues>{
+//const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+// return this.http.get<Leagues>(this.linkToLeagueTable,{headers});}
 }
 
 
