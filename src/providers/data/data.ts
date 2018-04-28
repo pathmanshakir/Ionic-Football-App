@@ -18,13 +18,14 @@ import { HomePage } from '../../pages/home/home';
 @Injectable()
 export class DataProvider {
     leagueId:HomePage;
-    id;
-   api_LeagueTable =('http://api.football-data.org/v1/competitions/'+this.id+'/leagueTable');
+   chosenLeague;
+   //api_LeagueTable =('http://api.football-data.org/v1/competitions/'+this.id+'/leagueTable');
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {
     console.log('Hello DataProvider Provider');
-    console.log(this.id);}
+    
+}
 
     getType():Observable<Leagues>{
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
@@ -32,7 +33,9 @@ const headers = new HttpHeaders().set('X-Auth-Token',this.key)
  }
     getLeagueTable():Observable<iTable>{
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
- return this.http.get<iTable>('http://api.football-data.org/v1/competitions/'+this.id+'/leagueTable',{headers});}
+console.log(this.chosenLeague._links.leagueTable.href);
+ return this.http.get<iTable>(this.chosenLeague._links.leagueTable.href,{headers});}
+
 }
 
 
@@ -60,7 +63,7 @@ const headers = new HttpHeaders().set('X-Auth-Token',this.key)
         leagueTable: LeagueTable;
     }
 
-    export interface AllLeagues {
+    export interface League {
         _links: Links;
         id: number;
         caption: string;
@@ -75,7 +78,7 @@ const headers = new HttpHeaders().set('X-Auth-Token',this.key)
     export interface Leagues {
         _links: Links;
         count: number;
-        league: AllLeagues[];
+        leaguearr: League[];
     }
 
 

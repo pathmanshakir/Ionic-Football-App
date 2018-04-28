@@ -32,7 +32,7 @@ export class HomePage implements OnInit{
 }
 
 openNavDetailsPage(variable) {
-  this.ionicData.id=variable;
+  this.ionicData.chosenLeague=variable;
   this.navCtrl.push(LeagueTablePage,{variable:variable});
 
   
