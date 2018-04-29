@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DataProvider} from '../../providers/data/data';
 import {iTable}from '../../providers/data/data';
 import{OnInit} from '@angular/core';
-import { HomePage } from '../../pages/home/home';
+import {StandingsPage } from '../../pages/Standings/Standings';
 /**
  * Generated class for the LeagueTablePage page.
  *
@@ -20,7 +20,6 @@ import { HomePage } from '../../pages/home/home';
 export class LeagueTablePage implements OnInit  {
  
   param: NavParams;
- Home:HomePage;
  leaguesTable:iTable;
  
   constructor(public ionicData:DataProvider) {
@@ -29,6 +28,7 @@ export class LeagueTablePage implements OnInit  {
 
   ngOnInit(){
     this.ionicData.getLeagueTable().subscribe(result => {this.leaguesTable = result; });
+
     
   }
   ionViewDidLoad() {

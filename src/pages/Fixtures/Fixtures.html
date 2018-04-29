@@ -1,0 +1,85 @@
+<ion-header>
+  
+    <ion-navbar>
+      <ion-title>Fixtures</ion-title>
+    </ion-navbar>
+    <style>
+    h1{
+      font-size: 16px;
+    }
+    
+        </style>
+  </ion-header>
+  
+  
+  <ion-content class="margin">
+  
+  <ion-grid *ngIf="fixtures" >
+    <ion-row >
+
+        <ion-col >
+            <h1>Date</h1>
+          </ion-col>
+      <ion-col >
+       <h1>Home team</h1>
+      </ion-col>
+      <ion-col >
+      
+      </ion-col>
+      <ion-col >
+        <h1>Away Team</h1>
+      </ion-col>
+   
+    </ion-row>
+  </ion-grid>
+  <ion-grid  *ngIf="fixtures" >
+    <ion-row   *ngFor="let fix of fixtures.fixtures"  >
+        
+        <ion-col *ngIf= "fix.date > myDate">
+            {{fix.date|date: 'MM-dd'}}
+          </ion-col>
+      <ion-col *ngIf= "fix.date > myDate">
+        {{fix.homeTeamName}}
+      </ion-col>
+      <!-- <ion-col *ngIf= "fix.date > myDate">
+          {{fix.result.goalsHomeTeam}}
+        </ion-col>
+        <ion-col *ngIf= "fix.date > myDate">
+            {{fix.result.goalsAwayTeam}}
+          </ion-col> -->
+          <ion-col *ngIf= "fix.date > myDate">
+             Vs
+            </ion-col>
+      <ion-col *ngIf= "fix.date > myDate">
+        {{fix.awayTeamName}}
+      </ion-col>
+    
+    </ion-row>
+    <button ion-button color="{{buttonColor}}" (click)=" onButtonClick()">{{buttonName}}</button>
+   
+  </ion-grid>
+  <div *ngIf="ShowResults">
+    <ion-grid  *ngIf="fixtures" >
+  <ion-row   *ngFor="let fix of fixtures.fixtures"  >
+      
+      <ion-col *ngIf= "fix.date < myDate">
+          {{fix.date|date: 'MM-dd'}}
+        </ion-col>
+    <ion-col *ngIf= "fix.date < myDate">
+      {{fix.homeTeamName}}
+    </ion-col>
+     <ion-col *ngIf= "fix.date < myDate">
+        {{fix.result.goalsHomeTeam}}
+      </ion-col>
+      <ion-col *ngIf= "fix.date < myDate">
+          {{fix.result.goalsAwayTeam}}
+        </ion-col> 
+  
+    <ion-col *ngIf= "fix.date < myDate">
+      {{fix.awayTeamName}}
+    </ion-col>
+  </ion-row>
+</ion-grid> 
+</div>
+  
+  </ion-content>

@@ -2,7 +2,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/operator/map';
-import { HomePage } from '../../pages/home/home';
+import { StandingsPage } from '../../pages/Standings/Standings';
 
 /*
   Generated class for the DataProvider provider.
@@ -12,14 +12,10 @@ import { HomePage } from '../../pages/home/home';
 */
 
 
-
-//Dit werkt wel
-//var api_LeagueTable ='http://api.football-data.org/v1/competitions/445/leagueTable';
 @Injectable()
 export class DataProvider {
-    leagueId:HomePage;
+    leagueId:StandingsPage;
    chosenLeague;
-   //api_LeagueTable =('http://api.football-data.org/v1/competitions/'+this.id+'/leagueTable');
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {
@@ -35,11 +31,17 @@ const headers = new HttpHeaders().set('X-Auth-Token',this.key)
 const headers = new HttpHeaders().set('X-Auth-Token',this.key)
 console.log(this.chosenLeague._links.leagueTable.href);
  return this.http.get<iTable>(this.chosenLeague._links.leagueTable.href,{headers});}
+ getFixtures():Observable<Ifixture>{
+    const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+    console.log(this.chosenLeague._links.fixtures.href);
+     return this.http.get<Ifixture>(this.chosenLeague._links.fixtures.href,{headers});}
+    
+    }
 
-}
 
 
 
+//All cometities
     export interface Self {
         href: string;
     }
@@ -80,6 +82,7 @@ console.log(this.chosenLeague._links.leagueTable.href);
         count: number;
         leaguearr: League[];
     }
+
 
 
     // LeagueTable Interfaces
@@ -146,6 +149,71 @@ console.log(this.chosenLeague._links.leagueTable.href);
                 standing: Standing[];
             }
         
-        
+        //Fixtures
+
+        export interface Self {
+            href: string;
+        }
+    
+        export interface Competition {
+            href: string;
+        }
+    
+        export interface Links {
+            self: Self;
+            competition: Competition;
+        }
+    
+        export interface Self2 {
+            href: string;
+        }
+    
+        export interface Competition2 {
+            href: string;
+        }
+    
+        export interface HomeTeam {
+            href: string;
+        }
+    
+        export interface AwayTeam {
+            href: string;
+        }
+    
+        export interface Links2 {
+            self: Self2;
+            competition: Competition2;
+            homeTeam: HomeTeam;
+            awayTeam: AwayTeam;
+        }
+    
+        export interface HalfTime {
+            goalsHomeTeam: number;
+            goalsAwayTeam: number;
+        }
+    
+        export interface Result {
+            goalsHomeTeam: number;
+            goalsAwayTeam: number;
+            halfTime: HalfTime;
+        }
+    
+        export interface Fixture {
+            _links: Links2;
+            date: Date;
+            status: string;
+            matchday: number;
+            homeTeamName: string;
+            awayTeamName: string;
+            result: Result;
+            odds?: any;
+        }
+    
+        export interface Ifixture {
+            _links: Links;
+            count: number;
+            fixtures: Fixture[];
+        }
+    
         
         

@@ -3,9 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClient } from '@angular/common/http';
-import { AboutPage } from '../pages/about/about';
+import { FixturesPage } from '../pages/Fixtures/Fixtures';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { StandingsPage } from '../pages/Standings/Standings';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -20,9 +20,9 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
+    FixturesPage,
     ContactPage,
-    HomePage,
+    StandingsPage,
     TabsPage,
     LeagueTablePage
   ],
@@ -36,9 +36,9 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
+    FixturesPage,
     ContactPage,
-    HomePage,
+    StandingsPage,
     TabsPage,
     LeagueTablePage
   ],
