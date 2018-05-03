@@ -14,8 +14,9 @@ import { StandingsPage } from '../../pages/Standings/Standings';
 
 @Injectable()
 export class DataProvider {
+    defaultLeague:Leagues;
     leagueId:StandingsPage;
-   chosenLeague;
+   chosenLeague ;
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {

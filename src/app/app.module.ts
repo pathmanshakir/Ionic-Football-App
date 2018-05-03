@@ -24,7 +24,8 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
     ContactPage,
     StandingsPage,
     TabsPage,
-    LeagueTablePage
+    LeagueTablePage,
+    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,8 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataProvider,
     HttpClient,
-    LeagueTablePage
+    LeagueTablePage,
+    
   
       
     
