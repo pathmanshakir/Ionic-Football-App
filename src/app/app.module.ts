@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HttpClient } from '@angular/common/http';
 import { FixturesPage } from '../pages/Fixtures/Fixtures';
+import { LoginPage } from '../pages/login/login';
 import { ContactPage } from '../pages/contact/contact';
 import { StandingsPage } from '../pages/Standings/Standings';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -25,6 +26,7 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
     StandingsPage,
     TabsPage,
     LeagueTablePage,
+    LoginPage
     
   ],
   imports: [
@@ -41,7 +43,8 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
     ContactPage,
     StandingsPage,
     TabsPage,
-    LeagueTablePage
+    LeagueTablePage,
+    LoginPage
   ],
   providers: [
     StatusBar,
