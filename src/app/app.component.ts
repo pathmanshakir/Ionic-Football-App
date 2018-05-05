@@ -5,6 +5,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import{Http}from '@angular/http';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { environment } from '../environments/environment';
+import firebase from 'firebase';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Content } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+
 
 
 @Component({
@@ -12,6 +18,7 @@ import { LoginPage } from '../pages/login/login';
 })
 export class MyApp {
   rootPage:any = LoginPage;
+  @ViewChild('content') navCtrl: NavController;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -20,5 +27,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    firebase.initializeApp(environment.firebase);
   }
 }

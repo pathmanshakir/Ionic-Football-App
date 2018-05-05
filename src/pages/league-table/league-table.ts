@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { DataProvider} from '../../providers/data/data';
+import{Http}from '@angular/http';
+import {Leagues}from '../../providers/data/data';
 import {iTable}from '../../providers/data/data';
 import{OnInit} from '@angular/core';
-import {StandingsPage } from '../../pages/Standings/Standings';
+import { HttpClient } from '@angular/common/http';
+import { FixturesPage } from '../../pages/Fixtures/Fixtures';
+import { TabsPage } from '../../pages/tabs/tabs';
+import{StandingsPage}from '../../pages/Standings/Standings';
+import { Content } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
 /**
  * Generated class for the LeagueTablePage page.
  *
@@ -11,7 +18,8 @@ import {StandingsPage } from '../../pages/Standings/Standings';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+
+
 @Component({
   selector: 'page-league-table',
   templateUrl: 'league-table.html',
@@ -19,20 +27,21 @@ import {StandingsPage } from '../../pages/Standings/Standings';
 })
 export class LeagueTablePage implements OnInit  {
  
-  param: NavParams;
  leaguesTable:iTable;
  
-  constructor(public ionicData:DataProvider) {
+ 
+  constructor( public ionicData:DataProvider) {
     
   }
-
+  
   ngOnInit(){
     this.ionicData.getLeagueTable().subscribe(result => {this.leaguesTable = result; });
-
-    
+   console.log("league table clicked");
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeagueTablePage');
   }
-
+ // back(){
+//this.navCtrl.setRoot(StandingsPage);
+//}
 }

@@ -14,6 +14,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { DataProvider } from '../providers/data/data';
 import { iTable,Leagues} from '../providers/data/data';
 import { LeagueTablePage } from '../pages/league-table/league-table';
+import { AuthProvider } from '../providers/auth/auth';
+import { HttpModule } from '@angular/http';
 
 
 
@@ -32,7 +34,8 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule
+    HttpClientModule,
+    HttpModule
 
     
   ],
@@ -53,6 +56,7 @@ import { LeagueTablePage } from '../pages/league-table/league-table';
     DataProvider,
     HttpClient,
     LeagueTablePage,
+    AuthProvider,
     
   
       

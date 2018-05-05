@@ -8,6 +8,8 @@ import{OnInit} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { LeagueTablePage } from '../../pages/league-table/league-table';
 import { FixturesPage } from '../../pages/Fixtures/Fixtures';
+import { TabsPage } from '../../pages/tabs/tabs';
+
 
 
 
@@ -20,7 +22,6 @@ export class StandingsPage implements OnInit{
   public id="445";
   leaguesCompt:Leagues;
   leaguesTable:iTable;
-  loadFixtures:FixturesPage;
 
   constructor(public navCtrl: NavController, public ionicData:DataProvider,public tablePage:LeagueTablePage) {
 
@@ -34,7 +35,9 @@ export class StandingsPage implements OnInit{
 }
 
 openNavDetailsPage(variable) {
+
   this.ionicData.chosenLeague=variable;
-  this.navCtrl.push(LeagueTablePage,{variable:variable});
+  this.navCtrl.push(TabsPage);
+
 }
 }
