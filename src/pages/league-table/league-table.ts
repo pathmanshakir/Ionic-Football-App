@@ -11,6 +11,7 @@ import { TabsPage } from '../../pages/tabs/tabs';
 import{StandingsPage}from '../../pages/Standings/Standings';
 import { Content } from 'ionic-angular';
 import { ViewChild } from '@angular/core';
+import { ViewController } from 'ionic-angular';
 /**
  * Generated class for the LeagueTablePage page.
  *
@@ -28,12 +29,14 @@ import { ViewChild } from '@angular/core';
 export class LeagueTablePage implements OnInit  {
  
  leaguesTable:iTable;
+
  
  
-  constructor( public ionicData:DataProvider) {
-    
+ 
+  constructor( public ionicData:DataProvider,) {
+     
   }
-  
+ 
   ngOnInit(){
     this.ionicData.getLeagueTable().subscribe(result => {this.leaguesTable = result; });
    console.log("league table clicked");
@@ -41,7 +44,8 @@ export class LeagueTablePage implements OnInit  {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeagueTablePage');
   }
- // back(){
+ back(){
 //this.navCtrl.setRoot(StandingsPage);
-//}
+ 
+}
 }

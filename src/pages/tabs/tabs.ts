@@ -3,7 +3,7 @@ import { LoginPage } from '../login/login';
 import { FixturesPage } from '../Fixtures/Fixtures';
 import { LeagueTablePage} from '../league-table/league-table';
 import { NavController } from 'ionic-angular';
-import { ContactPage } from '../contact/contact';
+import { TeamPage } from '../Teams/Teams';
 
 
 
@@ -17,7 +17,7 @@ export class TabsPage {
 
   tab1Root = LeagueTablePage;
   tab2Root = FixturesPage;
-  tab3Root = ContactPage;
+  tab3Root = TeamPage;
 
   constructor(private _NAV      : NavController,
     private _AUTH     : AuthProvider) {

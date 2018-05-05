@@ -1,7 +1,7 @@
 <ion-header>
   
     <ion-navbar>
-      <ion-title>Fixtures</ion-title>
+      <ion-title>Fixtures & Results</ion-title>
     </ion-navbar>
     <style>
     h1{
@@ -13,7 +13,29 @@
   
   
   <ion-content class="margin">
-  
+      <div *ngIf="ShowResults">
+          <ion-grid  *ngIf="fixtures" >
+        <ion-row   *ngFor="let fix of fixtures.fixtures"  >
+            
+            <ion-col *ngIf= "fix.date < myDate">
+                {{fix.date|date: 'MM-dd'}}
+              </ion-col>
+          <ion-col *ngIf= "fix.date < myDate">
+            {{fix.homeTeamName}}
+          </ion-col>
+           <ion-col *ngIf= "fix.date < myDate">
+              {{fix.result.goalsHomeTeam}}
+            </ion-col>
+            <ion-col *ngIf= "fix.date < myDate">
+                {{fix.result.goalsAwayTeam}}
+              </ion-col> 
+        
+          <ion-col *ngIf= "fix.date < myDate">
+            {{fix.awayTeamName}}
+          </ion-col>
+        </ion-row>
+      </ion-grid> 
+      </div>
   <ion-grid *ngIf="fixtures" >
     <ion-row >
 
@@ -36,7 +58,7 @@
     <ion-row   *ngFor="let fix of fixtures.fixtures"  >
         
         <ion-col *ngIf= "fix.date > myDate">
-            {{fix.date|date: 'MM-dd'}}
+            {{fix.date|date: date}}
           </ion-col>
       <ion-col *ngIf= "fix.date > myDate">
         {{fix.homeTeamName}}
@@ -58,27 +80,5 @@
     <button ion-button color="{{buttonColor}}" (click)=" onButtonClick()">{{buttonName}}</button>
    
   </ion-grid>
-  <div *ngIf="ShowResults">
-    <ion-grid  *ngIf="fixtures" >
-  <ion-row   *ngFor="let fix of fixtures.fixtures"  >
-      
-      <ion-col *ngIf= "fix.date < myDate">
-          {{fix.date|date: 'MM-dd'}}
-        </ion-col>
-    <ion-col *ngIf= "fix.date < myDate">
-      {{fix.homeTeamName}}
-    </ion-col>
-     <ion-col *ngIf= "fix.date < myDate">
-        {{fix.result.goalsHomeTeam}}
-      </ion-col>
-      <ion-col *ngIf= "fix.date < myDate">
-          {{fix.result.goalsAwayTeam}}
-        </ion-col> 
   
-    <ion-col *ngIf= "fix.date < myDate">
-      {{fix.awayTeamName}}
-    </ion-col>
-  </ion-row>
-</ion-grid> 
-</div>
   </ion-content>

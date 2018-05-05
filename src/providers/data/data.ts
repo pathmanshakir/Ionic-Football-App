@@ -17,6 +17,7 @@ export class DataProvider {
     defaultLeague:Leagues;
     leagueId:StandingsPage;
    chosenLeague ;
+   chosenTeam;
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {
@@ -36,6 +37,16 @@ console.log(this.chosenLeague._links.leagueTable.href);
     const headers = new HttpHeaders().set('X-Auth-Token',this.key)
     console.log(this.chosenLeague._links.fixtures.href);
      return this.http.get<Ifixture>(this.chosenLeague._links.fixtures.href,{headers});}
+
+     getTeams():Observable<iTeams>{
+        const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+        console.log(this.chosenLeague._links.fixtures.href);
+         return this.http.get<iTeams>(this.chosenLeague._links.teams.href,{headers});}
+
+         getPlayers():Observable<iPlayers>{
+            const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+            console.log(this.chosenLeague._links.fixtures.href);
+             return this.http.get<iPlayers>(this.chosenTeam._links.players.href,{headers});}
     
     }
 
@@ -216,5 +227,81 @@ console.log(this.chosenLeague._links.leagueTable.href);
             fixtures: Fixture[];
         }
     
+        //Teams
+
+        export interface Self {
+            href: string;
+        }
+    
+        export interface Competition {
+            href: string;
+        }
+    
+        export interface Links {
+            self: Self;
+            competition: Competition;
+        }
+    
+        export interface Self2 {
+            href: string;
+        }
+    
+        export interface Fixtures {
+            href: string;
+        }
+    
+        export interface Players {
+            href: string;
+        }
+    
+        export interface Links2 {
+            self: Self2;
+            fixtures: Fixtures;
+            players: Players;
+        }
+    
+        export interface Team {
+            _links: Links2;
+            name: string;
+            code: string;
+            shortName: string;
+            squadMarketValue?: any;
+            crestUrl: string;
+        }
+    
+        export interface iTeams {
+            _links: Links;
+            count: number;
+            teams: Team[];
+        }
         
-        
+      // Players
+
+      export interface Self {
+        href: string;
+    }
+
+    export interface Team {
+        href: string;
+    }
+
+    export interface Links {
+        self: Self;
+        team: Team;
+    }
+
+    export interface Player {
+        name: string;
+        position: string;
+        jerseyNumber?: number;
+        dateOfBirth: string;
+        nationality: string;
+        contractUntil: string;
+        marketValue?: any;
+    }
+
+    export interface iPlayers {
+        _links: Links;
+        count: number;
+        players: Player[];
+    }

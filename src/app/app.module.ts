@@ -5,8 +5,9 @@ import { MyApp } from './app.component';
 import { HttpClient } from '@angular/common/http';
 import { FixturesPage } from '../pages/Fixtures/Fixtures';
 import { LoginPage } from '../pages/login/login';
-import { ContactPage } from '../pages/contact/contact';
+import { TeamPage } from '../pages/Teams/Teams';
 import { StandingsPage } from '../pages/Standings/Standings';
+import { PlayersPage } from '../pages/Players/Players';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -16,6 +17,7 @@ import { iTable,Leagues} from '../providers/data/data';
 import { LeagueTablePage } from '../pages/league-table/league-table';
 import { AuthProvider } from '../providers/auth/auth';
 import { HttpModule } from '@angular/http';
+import { NavController,NavParams } from 'ionic-angular';
 
 
 
@@ -24,18 +26,21 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     FixturesPage,
-    ContactPage,
+    TeamPage,
     StandingsPage,
     TabsPage,
     LeagueTablePage,
-    LoginPage
+    LoginPage,
+    PlayersPage
+  
     
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    
 
     
   ],
@@ -43,11 +48,12 @@ import { HttpModule } from '@angular/http';
   entryComponents: [
     MyApp,
     FixturesPage,
-    ContactPage,
+    TeamPage,
     StandingsPage,
     TabsPage,
     LeagueTablePage,
-    LoginPage
+    LoginPage,
+    PlayersPage
   ],
   providers: [
     StatusBar,
@@ -57,6 +63,8 @@ import { HttpModule } from '@angular/http';
     HttpClient,
     LeagueTablePage,
     AuthProvider,
+
+    
     
   
       
