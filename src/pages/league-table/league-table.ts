@@ -29,11 +29,11 @@ import { ViewController } from 'ionic-angular';
 export class LeagueTablePage implements OnInit  {
  
  leaguesTable:iTable;
-
  
  
  
-  constructor( public ionicData:DataProvider,) {
+ 
+  constructor(public nav:NavController, public ionicData:DataProvider) {
      
   }
  
@@ -45,7 +45,7 @@ export class LeagueTablePage implements OnInit  {
     console.log('ionViewDidLoad LeagueTablePage');
   }
  back(){
-//this.navCtrl.setRoot(StandingsPage);
+ this.nav.push(StandingsPage);
  
 }
 }
