@@ -33,7 +33,7 @@ export class LeagueTablePage implements OnInit  {
  
  
  
-  constructor(public nav:NavController, public ionicData:DataProvider) {
+  constructor( public ionicData:DataProvider) {
      
   }
  
@@ -44,8 +44,7 @@ export class LeagueTablePage implements OnInit  {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeagueTablePage');
   }
- back(){
- this.nav.push(StandingsPage);
+
  
-}
+
 }

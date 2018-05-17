@@ -4,6 +4,7 @@ import { FixturesPage } from '../Fixtures/Fixtures';
 import { LeagueTablePage} from '../league-table/league-table';
 import { NavController } from 'ionic-angular';
 import { TeamPage } from '../Teams/Teams';
+import { TopScorersPage } from '../../pages/Rest_API/TopScorers';
 
 
 
@@ -18,6 +19,7 @@ export class TabsPage {
   tab1Root = LeagueTablePage;
   tab2Root = FixturesPage;
   tab3Root = TeamPage;
+  tab4Root=TopScorersPage;
 
   constructor(private _NAV      : NavController,
     private _AUTH     : AuthProvider) {

@@ -1,0 +1,62 @@
+<!--
+  Generated template for the LeagueTablePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    
+    <ion-navbar>
+      <ion-title>Top Scorers</ion-title>
+
+    </ion-navbar>
+    <style>
+     p{
+       font-weight: bold;
+       
+     }
+        </style>
+  </ion-header>
+  
+  <ion-content class="margin">
+  
+  <ion-grid   >
+    <ion-row >
+      <ion-col >
+          <p>Name</p>
+      </ion-col>
+      <ion-col >
+        <p>Team</p>
+      </ion-col>
+      <ion-col >
+          <p>Position</p>
+        </ion-col>
+      <ion-col >
+          <p>Goals Scored</p>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-grid  *ngIf="TopScorer" >
+    <ion-row  >
+      <ion-col>
+        {{TopScorer.name}}
+      </ion-col>
+      <ion-col>
+        {{TopScorer.team}}
+      </ion-col>
+      <ion-col>
+          {{TopScorer.positon}}
+        </ion-col>
+      <ion-col>
+          {{TopScorer.goals_Scored}}
+        </ion-col>
+       
+        
+          
+    </ion-row>
+  </ion-grid>
+  
+  
+  </ion-content>
+  
+  

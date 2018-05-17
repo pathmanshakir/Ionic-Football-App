@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { TeamPage } from '../pages/Teams/Teams';
 import { StandingsPage } from '../pages/Standings/Standings';
 import { PlayersPage } from '../pages/Players/Players';
+import { TopScorersPage } from '../pages/Rest_API/TopScorers';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -31,7 +32,8 @@ import { NavController,NavParams } from 'ionic-angular';
     TabsPage,
     LeagueTablePage,
     LoginPage,
-    PlayersPage
+    PlayersPage,
+    TopScorersPage
   
     
   ],
@@ -53,7 +55,8 @@ import { NavController,NavParams } from 'ionic-angular';
     TabsPage,
     LeagueTablePage,
     LoginPage,
-    PlayersPage
+    PlayersPage,
+    TopScorersPage
   ],
   providers: [
     StatusBar,

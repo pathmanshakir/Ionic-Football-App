@@ -19,6 +19,7 @@ export class DataProvider {
    chosenLeague ;
    chosenTeam;
   api_Competitions ='http://api.football-data.org/v1/competitions/';
+  MyRestApi="http://localhost:5000/api/v1/Topscorers";
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {
     console.log('Hello DataProvider Provider');
@@ -47,6 +48,11 @@ console.log(this.chosenLeague._links.leagueTable.href);
             const headers = new HttpHeaders().set('X-Auth-Token',this.key)
             console.log(this.chosenLeague._links.fixtures.href);
              return this.http.get<iPlayers>(this.chosenTeam._links.players.href,{headers});}
+
+             getTopScorers():Observable<iTopscorer>{
+                const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+
+                 return this.http.get<iTopscorer>(this.MyRestApi,{headers});}
     
     }
 
@@ -304,4 +310,16 @@ console.log(this.chosenLeague._links.leagueTable.href);
         _links: Links;
         count: number;
         players: Player[];
+    }
+
+    //My Rest API interface
+
+    export interface iTopscorer {
+        id: number;
+        foto: string;
+        name: string;
+        team: string;
+        position: string;
+        goals_Scored: number;
+        assists: number;
     }
