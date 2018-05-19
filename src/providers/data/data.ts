@@ -49,10 +49,9 @@ console.log(this.chosenLeague._links.leagueTable.href);
             console.log(this.chosenLeague._links.fixtures.href);
              return this.http.get<iPlayers>(this.chosenTeam._links.players.href,{headers});}
 
-             getTopScorers():Observable<iTopscorer>{
-                const headers = new HttpHeaders().set('X-Auth-Token',this.key)
+             getTopScorers():Observable<iTopscorer[]>{
 
-                 return this.http.get<iTopscorer>(this.MyRestApi,{headers});}
+                 return this.http.get<iTopscorer[]>(this.MyRestApi)}
     
     }
 

@@ -25,10 +25,14 @@ import { IonicErrorHandler } from 'ionic-angular';
 })
 export class TopScorersPage implements OnInit {
 
-   TopScorer:iTopscorer;
+   TopScorer:iTopscorer[];
+   public addPlayer: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public ionicData:DataProvider) {
   }
-
+  public  onButtonClick() {
+    
+    this.addPlayer = !this.addPlayer;
+  }
   ngOnInit() {
     
     this.ionicData.getTopScorers().subscribe(result => {this.TopScorer = result;  });
@@ -38,7 +42,8 @@ export class TopScorersPage implements OnInit {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad TopScorerpage');
-    console.log(this.TopScorer.name);
+   // console.log(this.TopScorer.name);
+
   }
 
 }
