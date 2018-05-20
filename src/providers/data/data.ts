@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Observable"
 import 'rxjs/add/operator/map';
 import { StandingsPage } from '../../pages/Standings/Standings';
+import { TopScorersPage } from '../../pages/Rest_API/TopScorers';
 
 /*
   Generated class for the DataProvider provider.
@@ -51,7 +52,19 @@ console.log(this.chosenLeague._links.leagueTable.href);
 
              getTopScorers():Observable<iTopscorer[]>{
 
-                 return this.http.get<iTopscorer[]>(this.MyRestApi)}
+                 return this.http.get<iTopscorer[]>(this.MyRestApi)
+                }
+                postTopScorers(){
+                    this.http.post(this.MyRestApi, 
+                    {Foto:"https://platform-static-files.s3.amazonaws.com/premierleague/photos/players/250x250/p101668.png",
+                    Name : "Jamie Vardy",
+                    Team : "Leicester",
+                    Position : "Striker",
+                    Goals_Scored :20,
+                    Assists:1}
+                ).subscribe(res => console.log());
+                   // return this.http.post<iScorer>(this.MyRestApi)
+                   }
     
     }
 

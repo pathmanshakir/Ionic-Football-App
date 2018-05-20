@@ -90,20 +90,34 @@
 
       </ion-item>
       
-      <button ion-button color="secondary" (click)="onButtonClick()">Add a player</button>
+      <button ion-button color="secondary" (click)="onButtonClick()" ion-button icon-start><ion-icon name="add-circle"></ion-icon>Add a player</button>
       <div *ngIf="addPlayer">
       <ion-item>
         <ion-label>Name</ion-label>
-        <ion-input></ion-input>
+        <ion-input [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Team</ion-label>
+        <ion-input [(ngModel)]="team" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Position</ion-label>
+        <ion-input  [(ngModel)]="position"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Goals</ion-label>
-        <ion-input ></ion-input>
+        <ion-input [(ngModel)]="goals" ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Assists</ion-label>
+        <ion-input [(ngModel)]="assists" ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Link to foto</ion-label>
-        <ion-input type="url"></ion-input>
+        <ion-input type="url" [(ngModel)]="link"></ion-input>
       </ion-item>
+     
+      <button ion-button color="secondary" (click)="Save()" ion-button icon-start ><ion-icon name="checkmark-circle"></ion-icon>Save</button>
     </div>
     </ion-list>
   </ion-content>

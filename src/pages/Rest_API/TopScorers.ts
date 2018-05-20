@@ -29,9 +29,19 @@ export class TopScorersPage implements OnInit {
    public addPlayer: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public ionicData:DataProvider) {
   }
+
   public  onButtonClick() {
     
     this.addPlayer = !this.addPlayer;
+  }
+  name;
+  goals:number;
+  link :String;
+  position :string;
+  assists:string;
+  team :String;
+  public  Save( name,goals:number,link :String,position :string,assists:string,team :String) {
+    this.ionicData.postTopScorers();
   }
   ngOnInit() {
     
@@ -47,3 +57,13 @@ export class TopScorersPage implements OnInit {
   }
 
 }
+export interface iScorer {
+  id: number;
+  foto: string;
+  name: string;
+  team: string;
+  position: string;
+  goals_Scored: number;
+  assists: number;
+}
+
