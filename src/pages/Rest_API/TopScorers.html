@@ -94,30 +94,30 @@
       <div *ngIf="addPlayer">
       <ion-item>
         <ion-label>Name</ion-label>
-        <ion-input [(ngModel)]="name"></ion-input>
+        <ion-input #name></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Team</ion-label>
-        <ion-input [(ngModel)]="team" ></ion-input>
+        <ion-input #team></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Position</ion-label>
-        <ion-input  [(ngModel)]="position"></ion-input>
+        <ion-input  #position></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Goals</ion-label>
-        <ion-input [(ngModel)]="goals" ></ion-input>
+        <ion-input #goals ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Assists</ion-label>
-        <ion-input [(ngModel)]="assists" ></ion-input>
+        <ion-input #assists ></ion-input>
       </ion-item>
       <ion-item>
         <ion-label fixed>Link to foto</ion-label>
-        <ion-input type="url" [(ngModel)]="link"></ion-input>
+        <ion-input #link></ion-input>
       </ion-item>
      
-      <button ion-button color="secondary" (click)="Save()" ion-button icon-start ><ion-icon name="checkmark-circle"></ion-icon>Save</button>
+      <button ion-button color="secondary" (click)="Save(name.value,team.value,position.value,goals.value,assists.value,link.value)" ion-button icon-start ><ion-icon name="checkmark-circle"></ion-icon>Save</button>
     </div>
     </ion-list>
   </ion-content>

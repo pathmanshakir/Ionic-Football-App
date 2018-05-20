@@ -1,4 +1,5 @@
-interface iScorer{
+export interface iScorer{
+    id:number,
     Foto:string,
     Name : string,
     Team : string,

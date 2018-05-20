@@ -10,6 +10,8 @@ import { ViewChild } from '@angular/core';
 import { ToastController } from 'ionic-angular';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicErrorHandler } from 'ionic-angular';
+import { iScorer} from '../../pages/Rest_API/Scorer';
+
 
 /**
  * Generated class for the PlayersPage page.
@@ -34,15 +36,12 @@ export class TopScorersPage implements OnInit {
     
     this.addPlayer = !this.addPlayer;
   }
-  name;
-  goals:number;
-  link :String;
-  position :string;
-  assists:string;
-  team :String;
-  public  Save( name,goals:number,link :String,position :string,assists:string,team :String) {
-    this.ionicData.postTopScorers();
+
+  public  Save( Name:string,Team :String,Position :string,Goals_Scored:string,Assists:string,Foto:String):void {
+    const newScorer:iScorer={Foto,Name,Team,Position,Goals_Scored,Assists} as iScorer;
+    this.ionicData.postTopScorers(newScorer).subscribe(scorer =>this.TopScorer.push(scorer))
   }
+
   ngOnInit() {
     
     this.ionicData.getTopScorers().subscribe(result => {this.TopScorer = result;  });
