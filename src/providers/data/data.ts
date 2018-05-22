@@ -20,6 +20,8 @@ export class DataProvider {
     leagueId:StandingsPage;
    chosenLeague ;
    chosenTeam;
+   chosenTopScorer;
+
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   MyRestApi="http://localhost:5000/api/v1/Topscorers";
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
@@ -59,8 +61,13 @@ console.log(this.chosenLeague._links.leagueTable.href);
                     return this.http.post(this.MyRestApi, scorer);
                    // return this.http.post<iScorer>(this.MyRestApi)
                    }
-
-    
+                   getTopscorerCoaches():Observable<iCoach>{
+                       console.log('http://localhost:5000/api/v1/Topscorers/'+this.chosenTopScorer+'/coach');
+                       debugger
+                    return this.http.get<iCoach>('http://localhost:5000/api/v1/Topscorers/'+this.chosenTopScorer+'/coach')
+                
+                   }
+                 
     }
 
 
@@ -329,4 +336,11 @@ console.log(this.chosenLeague._links.leagueTable.href);
         position: string;
         goals_Scored: number;
         assists: number;
+    }
+
+    export interface iCoach {
+        id: number;
+        foto: string;
+        fullName: string;
+        nationality: string;
     }

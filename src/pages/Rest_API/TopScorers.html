@@ -86,7 +86,8 @@
         </ion-thumbnail>
         <h2> {{Scorer.name}}</h2>
         <h2> Goals: {{Scorer.goals_Scored}}</h2>
-        <p> Team: {{Scorer.team}}</p>
+        <p> Team: {{Scorer.team}}  </p>
+        <button ion-button color="danger" (click)="ShowCoach(Scorer.id)" ion-button icon-start><ion-icon name="contact"></ion-icon>Coach</button>
 
       </ion-item>
       

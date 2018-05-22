@@ -11,6 +11,7 @@ import { ToastController } from 'ionic-angular';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicErrorHandler } from 'ionic-angular';
 import { iScorer} from '../../pages/Rest_API/Scorer';
+import { CoachesPage } from '../../pages/Rest_API/Coaches/Coaches';
 
 
 /**
@@ -40,6 +41,11 @@ export class TopScorersPage implements OnInit {
   public  Save( Name:string,Team :String,Position :string,Goals_Scored:string,Assists:string,Foto:String):void {
     const newScorer:iScorer={Foto,Name,Team,Position,Goals_Scored,Assists} as iScorer;
     this.ionicData.postTopScorers(newScorer).subscribe(scorer =>this.TopScorer.push(scorer))
+  }
+  ShowCoach(scorerID){
+    this.ionicData.chosenTopScorer=scorerID;
+    this.navCtrl.push(CoachesPage);
+    
   }
 
   ngOnInit() {
