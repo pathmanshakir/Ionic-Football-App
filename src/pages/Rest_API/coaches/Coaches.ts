@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 import { IonicPage} from 'ionic-angular';
 import { DataProvider} from '../../..//providers/data/data';
-import {iCoach}from '../../../providers/data/data';
+import { iCoach2 } from '../coaches/Coach';
 import{OnInit} from '@angular/core';
 import * as moment from 'moment';
 import { Content } from 'ionic-angular';
@@ -26,17 +26,18 @@ import { IonicErrorHandler } from 'ionic-angular';
 })
 export class CoachesPage implements OnInit {
  
-  coaches1:iCoach;
+  coaches1:iCoach2;
 
-  ngOnInit(): void {
-    debugger;
-    this.ionicData.getTopscorerCoaches().subscribe(result => {this.coaches1 = result;  });
-    debugger;
-  }
+
   constructor(public navCtrl: NavController, public navParams: NavParams,public ionicData:DataProvider) {
   }
   
-  
+  ngOnInit(): void {
+   
+    this.ionicData.getTopscorerCoaches().subscribe(result => {this.coaches1 = result;  });
+    
+    console.log("tes test ");
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CoachsPage');

@@ -14,16 +14,42 @@
 
 
 
-<ion-content class="margin" >
-  <ion-grid  *ngIf="coaches1" >
-    <ion-row   >
-      <ion-col>
-        {{coaches1}}
-      </ion-col>
+<ion-content class="margin2" >
+  <div  *ngIf="coaches1" >
      
-     
-    </ion-row>
-  </ion-grid>
+
+
+          <ion-card>
+              <img  src={{coaches1.foto}}/>
+              <div class="card-title"> {{coaches1.fullName}}</div>
+              <div class="card-subtitle"> {{coaches1.nationality}}</div>
+            </ion-card>
+<!-- 
+            <ion-card >
+          <img  src={{coaches1.foto}}/>
+          <ion-card-content >
+            <ion-card-title>
+                {{coaches1.fullName}}
+              </ion-card-title>
+            <p>
+                {{coaches1.nationality}}
+            </p>
+          </ion-card-content>
+        </ion-card> -->
+<!--   
+    <ion-grid align-items-center>
+        <ion-row align-items-center>
+            <img height="250dp" width="250dp"  src={{coaches1.foto}}>
+          </ion-row>
+      <ion-row align-items-center >         
+              {{coaches1.fullName}}
+            </ion-row>
+      <ion-row align-items-center>
+          {{coaches1.nationality}}
+        </ion-row>
+    </ion-grid> -->
+    
+  </div>
 
   
   

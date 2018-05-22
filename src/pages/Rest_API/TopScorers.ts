@@ -12,6 +12,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicErrorHandler } from 'ionic-angular';
 import { iScorer} from '../../pages/Rest_API/Scorer';
 import { CoachesPage } from '../../pages/Rest_API/Coaches/Coaches';
+import { iCoach2 } from './coaches/Coach';
 
 
 /**
@@ -30,6 +31,7 @@ export class TopScorersPage implements OnInit {
 
    TopScorer:iTopscorer[];
    public addPlayer: boolean = false;
+   public addCoach:boolean=false;
   constructor(public navCtrl: NavController, public navParams: NavParams,public ionicData:DataProvider) {
   }
 
@@ -37,13 +39,22 @@ export class TopScorersPage implements OnInit {
     
     this.addPlayer = !this.addPlayer;
   }
-
-  public  Save( Name:string,Team :String,Position :string,Goals_Scored:string,Assists:string,Foto:String):void {
-    const newScorer:iScorer={Foto,Name,Team,Position,Goals_Scored,Assists} as iScorer;
-    this.ionicData.postTopScorers(newScorer).subscribe(scorer =>this.TopScorer.push(scorer))
+  public  onButtonClick2() {
+    
+    this.addCoach = !this.addCoach;
   }
+
+
+  public  Save( Name:string,Team :String,Position :string,Goals_Scored:string,Assists:string,Foto:String,fullName:String,nationality:string,foto:string):void {
+    const coach:iCoach2={foto,fullName,nationality} as iCoach2;
+    const newScorer:iScorer={Foto,Name,Team,coach,Position,Goals_Scored,Assists} as iScorer;
+    this.ionicData.postTopScorers(newScorer).subscribe(scorer =>this.TopScorer.push(scorer))
+    this.addPlayer = !this.addPlayer;
+  }
+
+ 
   ShowCoach(scorerID){
-    this.ionicData.chosenTopScorer=scorerID;
+    this.ionicData.MyRestApi2='http://localhost:5000/api/v1/Topscorers/'+scorerID+'/coach';
     this.navCtrl.push(CoachesPage);
     
   }

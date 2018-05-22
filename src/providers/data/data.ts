@@ -5,6 +5,7 @@ import 'rxjs/add/operator/map';
 import { StandingsPage } from '../../pages/Standings/Standings';
 import { TopScorersPage } from '../../pages/Rest_API/TopScorers';
 import { iScorer } from '../../pages/Rest_API/Scorer';
+import { iCoach2 } from '../../pages/Rest_API/coaches/Coach';
 
 /*
   Generated class for the DataProvider provider.
@@ -12,6 +13,12 @@ import { iScorer } from '../../pages/Rest_API/Scorer';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+const httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'my-auth-token'
+    })
+  };
 
 
 @Injectable()
@@ -24,6 +31,7 @@ export class DataProvider {
 
   api_Competitions ='http://api.football-data.org/v1/competitions/';
   MyRestApi="http://localhost:5000/api/v1/Topscorers";
+  MyRestApi2;
   key ='a5b312b8f5cf49e18c7cde881c2b0c1f';
   constructor(public http: HttpClient) {
     console.log('Hello DataProvider Provider');
@@ -55,16 +63,16 @@ console.log(this.chosenLeague._links.leagueTable.href);
 
              getTopScorers():Observable<iTopscorer[]>{
 
-                 return this.http.get<iTopscorer[]>(this.MyRestApi)
+                 return this.http.get<iTopscorer[]>(this.MyRestApi);
                 }
                 postTopScorers(scorer:iScorer):Observable<any>{
-                    return this.http.post(this.MyRestApi, scorer);
-                   // return this.http.post<iScorer>(this.MyRestApi)
+                    return this.http.post<iScorer>(this.MyRestApi, scorer,httpOptions);
+                   // return this.http.post(this.MyRestApi)
                    }
-                   getTopscorerCoaches():Observable<iCoach>{
-                       console.log('http://localhost:5000/api/v1/Topscorers/'+this.chosenTopScorer+'/coach');
-                       debugger
-                    return this.http.get<iCoach>('http://localhost:5000/api/v1/Topscorers/'+this.chosenTopScorer+'/coach')
+                   getTopscorerCoaches():Observable<iCoach2>{
+                       console.log(this.MyRestApi2);
+               
+                    return this.http.get<iCoach2>(this.MyRestApi2)
                 
                    }
                  
@@ -333,14 +341,10 @@ console.log(this.chosenLeague._links.leagueTable.href);
         foto: string;
         name: string;
         team: string;
+        coach: iCoach2;
         position: string;
         goals_Scored: number;
         assists: number;
     }
 
-    export interface iCoach {
-        id: number;
-        foto: string;
-        fullName: string;
-        nationality: string;
-    }
+   

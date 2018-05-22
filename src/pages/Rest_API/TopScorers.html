@@ -87,7 +87,7 @@
         <h2> {{Scorer.name}}</h2>
         <h2> Goals: {{Scorer.goals_Scored}}</h2>
         <p> Team: {{Scorer.team}}  </p>
-        <button ion-button color="danger" (click)="ShowCoach(Scorer.id)" ion-button icon-start><ion-icon name="contact"></ion-icon>Coach</button>
+        <button ion-button round outline (click)="ShowCoach(Scorer.id)" ion-button icon-start><ion-icon name="contact"></ion-icon>Coach</button>
 
       </ion-item>
       
@@ -118,7 +118,23 @@
         <ion-input #link></ion-input>
       </ion-item>
      
-      <button ion-button color="secondary" (click)="Save(name.value,team.value,position.value,goals.value,assists.value,link.value)" ion-button icon-start ><ion-icon name="checkmark-circle"></ion-icon>Save</button>
+     
+      <ion-item><button ion-button color="light" (click)="onButtonClick2()" ion-button icon-start><ion-icon name="add-circle"></ion-icon>Add Coach</button></ion-item>
+      <div *ngIf="addCoach">
+          <ion-item>
+              <ion-label>Full Name</ion-label>
+              <ion-input #fullName></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label fixed>Nationality</ion-label>
+              <ion-input #nationality></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label fixed>link</ion-label>
+              <ion-input  #linkCoach></ion-input>
+            </ion-item>
+            <button ion-button color="secondary" (click)="Save(name.value,team.value,position.value,goals.value,assists.value,link.value,fullName.value,nationality.value,linkCoach.value)" ion-button icon-start ><ion-icon name="checkmark-circle"></ion-icon>Save</button>
+      </div>
     </div>
     </ion-list>
   </ion-content>

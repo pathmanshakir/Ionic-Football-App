@@ -1,8 +1,8 @@
-{
-  "name": "Football_Project",
-  "app_id": "",
+ {
+   "name": "Football_Project",
+   "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
   }
-}
+ }
