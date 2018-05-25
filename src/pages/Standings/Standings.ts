@@ -22,8 +22,9 @@ export class StandingsPage implements OnInit{
   public id="445";
   leaguesCompt:Leagues;
   leaguesTable:iTable;
-
+  tabBarElement: any;
   constructor(public navCtrl: NavController, public ionicData:DataProvider,public tablePage:LeagueTablePage) {
+    this.tabBarElement = document.querySelector('.tabbar');
 
       
     }
@@ -33,11 +34,18 @@ export class StandingsPage implements OnInit{
      
     
 }
+ionViewWillEnter() {
+  this.tabBarElement.style.display = 'none';
+}
+
+ionViewWillLeave() {
+  this.tabBarElement.style.display = 'flex';
+}
 
 openNavDetailsPage(variable) {
 
   this.ionicData.chosenLeague=variable;
-  this.navCtrl.push(TabsPage);
+  this.navCtrl.push(LeagueTablePage);
 
 }
 }

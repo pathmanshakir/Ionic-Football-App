@@ -1,5 +1,5 @@
 import { Component,ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Tabs } from 'ionic-angular';
 import { Nav } from 'ionic-angular';
 import { TabsPage } from '../../pages/tabs/tabs';
 import { StandingsPage } from '../../pages/Standings/Standings';
@@ -59,7 +59,7 @@ export class LoginPage {
         this._AUTH.loginWithEmailAndPassword(email, password)
         .then((auth : any) =>
         {
-           this.navCtrl.setRoot(StandingsPage);
+           this.navCtrl.setRoot(TabsPage);
         })
         .catch((error : any) =>
         {

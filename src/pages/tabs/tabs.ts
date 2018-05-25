@@ -9,6 +9,7 @@ import { TopScorersPage } from '../../pages/Rest_API/TopScorers';
 
 
 import { AuthProvider } from '../../providers/auth/auth';
+import { StandingsPage } from '../Standings/Standings';
 
 
 @Component({
@@ -16,7 +17,7 @@ import { AuthProvider } from '../../providers/auth/auth';
 })
 export class TabsPage {
 
-  tab1Root = LeagueTablePage;
+  tab1Root = StandingsPage;
   tab2Root = FixturesPage;
   tab3Root = TeamPage;
   tab4Root=TopScorersPage;
